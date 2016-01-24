@@ -28,14 +28,14 @@ public class GameInfoFragment extends Fragment {
 
     static String ARG_POSITION = "position";
 
-    private TextView txtGameName;
+    /*private TextView txtGameName;
     private TextView txtClassification;
     private TextView txtCategory;
     private TextView txtProdution;
     private TextView txtDescription;
     private ImageView imgVgame;
     private Button btnVideo;
-    private Button btnStore;
+    private Button btnStore;*/
 
     private String gameName;
     private String gameClassification;
@@ -48,6 +48,8 @@ public class GameInfoFragment extends Fragment {
 
     private String argumentsConverter;
 
+    int mCurrentPosition = 0;
+
     public GameInfoFragment() {
         // Required empty public constructor
     }
@@ -58,26 +60,46 @@ public class GameInfoFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_game_info, container, false);
 
-        txtGameName = (TextView)view.findViewById(R.id.txtGameName);
+        if (savedInstanceState != null) {
+            mCurrentPosition = savedInstanceState.getInt(ARG_POSITION);
+        }
+
+
+        /*txtGameName = (TextView)view.findViewById(R.id.txtGameName);
         txtClassification = (TextView)view.findViewById(R.id.txtClassification);
         txtCategory = (TextView)view.findViewById(R.id.txtCategory);
         txtProdution = (TextView)view.findViewById(R.id.txtProdution);
         txtDescription = (TextView)view.findViewById(R.id.txtDescription);
         imgVgame = (ImageView)view.findViewById(R.id.imageView);
         btnVideo = (Button)view.findViewById(R.id.btnVideo);
-        btnStore = (Button)view.findViewById(R.id.btnGooglePlay);
+        btnStore = (Button)view.findViewById(R.id.btnGooglePlay);*/
 
-        if (getArguments() != null) {
-            Integer pos = Integer.valueOf(getArguments().getString(ARG_POSITION)) + 1;
-            argumentsConverter = String.valueOf(pos);
-        }
 
-        updateGameInfo(argumentsConverter);
 
         return view;
     }
 
-    public void updateGameInfo(String position){
+    @Override
+    public void onStart() {
+        super.onStart();
+        Bundle args = getArguments();
+        if (args != null) {
+            updateGameInfo(args.getInt(ARG_POSITION));
+        }else if (mCurrentPosition != 0) {
+            updateGameInfo(mCurrentPosition);
+        }
+    }
+
+    public void updateGameInfo(int position){
+
+        TextView txtGameName = (TextView)getActivity().findViewById(R.id.txtGameName);
+        TextView txtClassification = (TextView)getActivity().findViewById(R.id.txtClassification);
+        TextView txtCategory = (TextView)getActivity().findViewById(R.id.txtCategory);
+        TextView txtProdution = (TextView)getActivity().findViewById(R.id.txtProdution);
+        TextView txtDescription = (TextView)getActivity().findViewById(R.id.txtDescription);
+        ImageView imgVgame = (ImageView)getActivity().findViewById(R.id.imageView);
+        Button btnVideo = (Button)getActivity().findViewById(R.id.btnVideo);
+        Button btnStore = (Button)getActivity().findViewById(R.id.btnGooglePlay);
 
         DatabaseHandler db = new DatabaseHandler(getContext());
         List<Jogo> games = db.getAllGames(position);
@@ -133,6 +155,13 @@ public class GameInfoFragment extends Fragment {
                 }
             }
         });
+
+        mCurrentPosition = position;
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(ARG_POSITION, mCurrentPosition);
+    }
 }

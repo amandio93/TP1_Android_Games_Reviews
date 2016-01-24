@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -62,15 +64,40 @@ public class ListFragment extends android.support.v4.app.ListFragment {
 
         this.selectedIndex = position;
 
-        GameInfoFragment gameInfoFragment = new GameInfoFragment();
-        Bundle args = new Bundle();
-        args.putString(GameInfoFragment.ARG_POSITION, String.valueOf(selectedIndex));
-        gameInfoFragment.setArguments(args);
+        GameInfoFragment gameInfoFragmentLand = (GameInfoFragment)
+                getActivity().getSupportFragmentManager().findFragmentById(R.id.game_info_fragment);
 
-        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragment_container, gameInfoFragment);
-        transaction.addToBackStack(null);
-        transaction.commit();
+        if (gameInfoFragmentLand != null) {
+            if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+                //gameInfoFragmentLand.updateGameInfo(selectedIndex +1);
+                GameInfoFragment gameInfoFragment = new GameInfoFragment();
+                Bundle args = new Bundle();
+                args.putInt(GameInfoFragment.ARG_POSITION, (selectedIndex + 1));
+                gameInfoFragment.setArguments(args);
+
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+
+                transaction.replace(R.id.fragment_container, gameInfoFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }else{
+                gameInfoFragmentLand.updateGameInfo(selectedIndex +1);
+            }
+        }else{
+            GameInfoFragment gameInfoFragment = new GameInfoFragment();
+            Bundle args = new Bundle();
+            args.putInt(GameInfoFragment.ARG_POSITION, (selectedIndex + 1));
+            gameInfoFragment.setArguments(args);
+
+            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+
+            transaction.replace(R.id.fragment_container, gameInfoFragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+        }
+
+
+
     }
 
 }

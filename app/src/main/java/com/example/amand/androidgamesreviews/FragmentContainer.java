@@ -2,6 +2,7 @@ package com.example.amand.androidgamesreviews;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,6 +23,8 @@ public class FragmentContainer extends AppCompatActivity {
     static final String STATE_INFO = "InfoFragment";
     static final String STATE_LIST_GAME = "ListGameFragment";
 
+    static final boolean STATE = false;
+
     public boolean stateInfo = false;
     public boolean stateListGames = false;
 
@@ -35,25 +38,29 @@ public class FragmentContainer extends AppCompatActivity {
         buttonName = intent.getStringExtra("btnName");
         Log.d("btnName", buttonName);
 
-        if (savedInstanceState != null) {
+        /*if (savedInstanceState != null) {
             stateInfo = savedInstanceState.getBoolean(STATE_INFO, true);
             stateListGames = savedInstanceState.getBoolean(STATE_LIST_GAME, true);
-        }
+        }*/
 
-        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-
-            if (stateListGames == true){
-                if (stateInfo){
-                    FragmentTransaction gameInfo = showGameInfo(R.id.fragment_container);
-                }else{
-                    ListFragment listFragment = new ListFragment();
-                    FragmentTransaction transaction = this.getSupportFragmentManager().beginTransaction();
-                    transaction.replace(R.id.fragment_container, listFragment).commit();
-                }
+        /*if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            if (stateListGames){
+                ListFragment listFragment = new ListFragment();
+                FragmentTransaction transaction = this.getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_container, listFragment).commit();
 
             }else{
                 FragmentTransaction res = showList(R.id.fragment_container);
             }
+        }*/
+
+
+        if (findViewById(R.id.fragment_container) != null) {
+
+            if (savedInstanceState != null) {
+                return;
+            }
+            FragmentTransaction res = showList(R.id.fragment_container);
         }
     }
 
@@ -75,7 +82,15 @@ public class FragmentContainer extends AppCompatActivity {
         return transaction;
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        Fragment infoFragment = getSupportFragmentManager().findFragmentById(R.id.game_info);
+        if (infoFragment != null){
+            savedInstanceState.putBoolean(STATE_INFO, true);
+        }
 
+        super.onSaveInstanceState(savedInstanceState);
+    }
 
 
 }

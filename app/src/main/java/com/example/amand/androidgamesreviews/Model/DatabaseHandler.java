@@ -173,14 +173,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return jogosList;
     }
 
-    public List<Jogo> getAllGames(String CodJogo) {
+    public List<Jogo> getAllGames(int CodJogo) {
         List<Jogo> jogosList = new ArrayList<>();
         String selectQuery = "SELECT nome_jogo, classificacao_jogo, categorias.categoria, produtoras.produtora, " +
                 " descricao_jogo, nome_imagem_jogo, link_video_jogo, link_store_jogo FROM "
                 + TABELA_JOGOS + ", " + TABELA_CATEGORIAS + ", " + TABELA_PRODUTORAS +
                 " WHERE categorias.cod_categoria=jogos.cod_categoria" +
                 " AND produtoras.cod_produtora=jogos.cod_produtora" +
-                " AND cod_jogo=" + CodJogo + "";
+                " AND cod_jogo=" + String.valueOf(CodJogo) + "";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         if (cursor.moveToFirst()) {
