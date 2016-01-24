@@ -57,6 +57,7 @@ public class ListFragment extends android.support.v4.app.ListFragment {
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
+
     public void onListItemClick(ListView l, View v, int position, long id) {
 
         this.selectedIndex = position;
