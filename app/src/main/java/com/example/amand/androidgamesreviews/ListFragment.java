@@ -1,11 +1,23 @@
 package com.example.amand.androidgamesreviews;
 
 
+import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.example.amand.androidgamesreviews.Model.DatabaseHandler;
+import com.example.amand.androidgamesreviews.Model.Jogo;
+
+import java.util.List;
 
 
 /**
@@ -13,6 +25,8 @@ import android.view.ViewGroup;
  */
 public class ListFragment extends android.support.v4.app.ListFragment {
 
+    public static final String STATE_ARGS = "getArguments";
+    private int selectedIndex;
 
     public ListFragment() {
         // Required empty public constructor
@@ -22,10 +36,40 @@ public class ListFragment extends android.support.v4.app.ListFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list, container, false);
+        DatabaseHandler db = new DatabaseHandler(getContext());
+        List<Jogo> jogos = db.getAllGames();
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(inflater.getContext(), android.R.layout.simple_list_item_1){
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                View view =super.getView(position, convertView, parent);
+                TextView textView=(TextView) view.findViewById(android.R.id.text1);
+                textView.setTextColor(Color.WHITE);
+                return view;
+            }
+        };
+        for (Jogo gm : jogos) {
+            adapter.add(gm.get_nome_jogo());
+            Log.d("Nome do jogo: ", "Nome: " + gm.get_nome_jogo());
+        }
+        setListAdapter(adapter);
+
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
+    public void onListItemClick(ListView l, View v, int position, long id) {
 
+        this.selectedIndex = position;
+
+        GameInfoFragment gameInfoFragment = new GameInfoFragment();
+        Bundle args = new Bundle();
+        args.putString(GameInfoFragment.ARG_POSITION, String.valueOf(selectedIndex));
+        gameInfoFragment.setArguments(args);
+
+        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container, gameInfoFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
 
 }

@@ -87,7 +87,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
      * Adicionar a produtora
      * @param produtora
      */
-    public void addProdutora(Produtora produtora) {
+    public void addProdution(Produtora produtora) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(KEY_NOME_PRODUTORA, produtora.get_nome_produtora());
@@ -99,7 +99,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
      * Adicionar a categoria
      * @param categoria
      */
-    public void addCategoria(Categoria categoria) {
+    public void addCategory(Categoria categoria) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(KEY_NOME_CATEGORIA, categoria.get_nome_categoria());
@@ -111,7 +111,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
      * Adicionar o jogo
      * @param jogo
      */
-    public void addJogo(Jogo jogo) {
+    public void addGame(Jogo jogo) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(KEY_NOME_JOGO, jogo.get_nome_jogo());
@@ -127,7 +127,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
 
-    public List<Categoria> getAllCategorias() {
+    public List<Categoria> getAllCategorys() {
         List<Categoria> categoriaList = new ArrayList<>();
         String selectQuery = "SELECT categoria FROM " + TABELA_CATEGORIAS;
         SQLiteDatabase db = this.getWritableDatabase();
@@ -142,7 +142,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return categoriaList;
     }
 
-    public List<Produtora> getAllProdutoras() {
+    public List<Produtora> getAllProdutions() {
         List<Produtora> produtoraList = new ArrayList<>();
 
         String selectQuery = "SELECT produtora FROM " + TABELA_PRODUTORAS;
@@ -158,7 +158,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return produtoraList;
     }
 
-    public List<Jogo> getAllJogos() {
+    public List<Jogo> getAllGames() {
         List<Jogo> jogosList = new ArrayList<>();
         String selectQuery = "SELECT nome_jogo FROM " + TABELA_JOGOS;
         SQLiteDatabase db = this.getWritableDatabase();
