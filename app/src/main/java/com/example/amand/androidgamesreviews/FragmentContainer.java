@@ -54,7 +54,6 @@ public class FragmentContainer extends AppCompatActivity {
             }
         }*/
 
-
         if (findViewById(R.id.fragment_container) != null) {
 
             if (savedInstanceState != null) {

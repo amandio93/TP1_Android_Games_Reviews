@@ -60,9 +60,9 @@ public class GameInfoFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_game_info, container, false);
 
-        if (savedInstanceState != null) {
+        /*if (savedInstanceState != null) {
             mCurrentPosition = savedInstanceState.getInt(ARG_POSITION);
-        }
+        }*/
 
 
         /*txtGameName = (TextView)view.findViewById(R.id.txtGameName);
@@ -84,9 +84,13 @@ public class GameInfoFragment extends Fragment {
         super.onStart();
         Bundle args = getArguments();
         if (args != null) {
-            updateGameInfo(args.getInt(ARG_POSITION));
-        }else if (mCurrentPosition != 0) {
+            mCurrentPosition = args.getInt("position");
             updateGameInfo(mCurrentPosition);
+            /*if (mCurrentPosition != 0) {
+                updateGameInfo(mCurrentPosition);
+            }else {
+                updateGameInfo(args.getInt(ARG_POSITION));
+            }*/
         }
     }
 
@@ -156,12 +160,12 @@ public class GameInfoFragment extends Fragment {
             }
         });
 
-        mCurrentPosition = position;
+        //mCurrentPosition = position;
     }
 
-    @Override
+   /* @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt(ARG_POSITION, mCurrentPosition);
-    }
+    }*/
 }

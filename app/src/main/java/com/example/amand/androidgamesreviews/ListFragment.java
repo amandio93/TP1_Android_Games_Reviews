@@ -27,7 +27,7 @@ import java.util.List;
  */
 public class ListFragment extends android.support.v4.app.ListFragment {
 
-    public static final String STATE_ARGS = "getArguments";
+    //public static final String STATE_ARGS = "getArguments";
     private int selectedIndex;
 
     public ListFragment() {
@@ -62,40 +62,43 @@ public class ListFragment extends android.support.v4.app.ListFragment {
 
     public void onListItemClick(ListView l, View v, int position, long id) {
 
-        this.selectedIndex = position;
+        this.selectedIndex = (position + 1);
 
-        GameInfoFragment gameInfoFragmentLand = (GameInfoFragment)
+        /*GameInfoFragment gameInfoFragmentLand = (GameInfoFragment)
                 getActivity().getSupportFragmentManager().findFragmentById(R.id.game_info_fragment);
 
-        if (gameInfoFragmentLand != null) {
+        if (gameInfoFragmentLand != null ) {
             if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
                 //gameInfoFragmentLand.updateGameInfo(selectedIndex +1);
                 GameInfoFragment gameInfoFragment = new GameInfoFragment();
-                Bundle args = new Bundle();
-                args.putInt(GameInfoFragment.ARG_POSITION, (selectedIndex + 1));
-                gameInfoFragment.setArguments(args);
-
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-
                 transaction.replace(R.id.fragment_container, gameInfoFragment);
                 transaction.addToBackStack(null);
                 transaction.commit();
+                gameInfoFragmentLand.updateGameInfo(selectedIndex);
             }else{
-                gameInfoFragmentLand.updateGameInfo(selectedIndex +1);
+                gameInfoFragmentLand.updateGameInfo(selectedIndex);
             }
+            //gameInfoFragmentLand.updateGameInfo(selectedIndex +1);
         }else{
-            GameInfoFragment gameInfoFragment = new GameInfoFragment();
-            Bundle args = new Bundle();
-            args.putInt(GameInfoFragment.ARG_POSITION, (selectedIndex + 1));
-            gameInfoFragment.setArguments(args);
 
+        }*/
+        GameInfoFragment gameInfoFragment = new GameInfoFragment();
+        if (getActivity().findViewById(R.id.fragment_container) != null){
+
+            Bundle args = new Bundle();
+            args.putInt("position", selectedIndex);
+            gameInfoFragment.setArguments(args);
             FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
 
             transaction.replace(R.id.fragment_container, gameInfoFragment);
             transaction.addToBackStack(null);
             transaction.commit();
+        }else{
+            GameInfoFragment gameInfoFragmentLand = (GameInfoFragment)
+                    getActivity().getSupportFragmentManager().findFragmentById(R.id.game_info_fragment);
+            gameInfoFragmentLand.updateGameInfo(selectedIndex);
         }
-
 
 
     }
