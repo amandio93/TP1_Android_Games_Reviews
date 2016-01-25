@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 /**
  * André Amândio
@@ -53,14 +54,20 @@ public class FragmentContainer extends AppCompatActivity {
                 FragmentTransaction res = showList(R.id.fragment_container);
             }
         }*/
-
+        ListFragment listFragment = (ListFragment)
+                this.getSupportFragmentManager().findFragmentById(R.id.list_fragment);
+        GameInfoFragment gameInfoFragmentLand = (GameInfoFragment)
+                this.getSupportFragmentManager().findFragmentById(R.id.game_info_fragment);
         if (findViewById(R.id.fragment_container) != null) {
 
             if (savedInstanceState != null) {
                 return;
             }
+
             FragmentTransaction res = showList(R.id.fragment_container);
         }
+
+
     }
 
     private FragmentTransaction showList(Integer container){

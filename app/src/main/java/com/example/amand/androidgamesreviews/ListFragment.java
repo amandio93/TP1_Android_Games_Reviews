@@ -29,6 +29,7 @@ public class ListFragment extends android.support.v4.app.ListFragment {
 
     //public static final String STATE_ARGS = "getArguments";
     private int selectedIndex;
+    boolean landState;
 
     public ListFragment() {
         // Required empty public constructor
@@ -84,19 +85,23 @@ public class ListFragment extends android.support.v4.app.ListFragment {
 
         }*/
         GameInfoFragment gameInfoFragment = new GameInfoFragment();
+        GameInfoFragment gameInfoFragmentLand = (GameInfoFragment)
+                getActivity().getSupportFragmentManager().findFragmentById(R.id.game_info_fragment);
         if (getActivity().findViewById(R.id.fragment_container) != null){
 
             Bundle args = new Bundle();
             args.putInt("position", selectedIndex);
             gameInfoFragment.setArguments(args);
             FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-
+            landState = false;
             transaction.replace(R.id.fragment_container, gameInfoFragment);
             transaction.addToBackStack(null);
             transaction.commit();
-        }else{
-            GameInfoFragment gameInfoFragmentLand = (GameInfoFragment)
-                    getActivity().getSupportFragmentManager().findFragmentById(R.id.game_info_fragment);
+        }
+        else{
+            /*GameInfoFragment gameInfoFragmentLand = (GameInfoFragment)
+                    getActivity().getSupportFragmentManager().findFragmentById(R.id.game_info_fragment);*/
+            landState = true;
             gameInfoFragmentLand.updateGameInfo(selectedIndex);
         }
 

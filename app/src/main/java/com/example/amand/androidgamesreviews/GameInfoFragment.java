@@ -2,10 +2,12 @@ package com.example.amand.androidgamesreviews;
 
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -75,13 +77,13 @@ public class GameInfoFragment extends Fragment {
         btnStore = (Button)view.findViewById(R.id.btnGooglePlay);*/
 
 
-
         return view;
     }
 
     @Override
     public void onStart() {
         super.onStart();
+
         Bundle args = getArguments();
         if (args != null) {
             mCurrentPosition = args.getInt("position");
