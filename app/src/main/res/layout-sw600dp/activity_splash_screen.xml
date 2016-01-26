@@ -9,8 +9,8 @@
     android:orientation="vertical" >
 
     <ImageView
-        android:layout_width="300dp"
-        android:layout_height="160dp"
+        android:layout_width="460dp"
+        android:layout_height="230dp"
         android:id="@+id/splash"
         android:background="@drawable/logo" />
 

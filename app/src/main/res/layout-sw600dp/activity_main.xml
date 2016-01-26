@@ -22,7 +22,7 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="460dp"
-            android:layout_height="200dp"
+            android:layout_height="230dp"
             android:id="@+id/layoutLogo"
             android:background="@drawable/logo"
             android:layout_marginBottom="10dp">
