@@ -33,6 +33,9 @@ public class DatabaseInsert {
         db.addCategory(new Categoria("Cartas"));
         db.addCategory(new Categoria("Desporto"));
         db.addCategory(new Categoria("Corridas"));
+        db.addCategory(new Categoria("Puzzle"));
+        db.addCategory(new Categoria("Estratégia"));
+        db.addCategory(new Categoria("Música"));
 
         db.addProdution(new Produtora("Clean Master Games"));
         db.addProdution(new Produtora("TaoGames Limited"));
@@ -40,6 +43,10 @@ public class DatabaseInsert {
         db.addProdution(new Produtora("Kiloo"));
         db.addProdution(new Produtora("Miniclip.com"));
         db.addProdution(new Produtora("Electronic Arts"));
+        db.addProdution(new Produtora("Soner Kara"));
+        db.addProdution(new Produtora("King"));
+        db.addProdution(new Produtora("Tapps - Top Apps and Games"));
+        db.addProdution(new Produtora("Invictus Games Ltd."));
 
         db.addGame(new Jogo("Piano Tiles", "Piano Tiles 2 é a sequência do Piano Tiles (Don't Tap the White Tile), " +
                 "que é mundialmente conhecido e popular. " +
@@ -63,7 +70,7 @@ public class DatabaseInsert {
                 "Help Jake, Tricky & Fresh escape from the grumpy Inspector and his dog.", 4.4, "subwaysurfers",
                 "https://youtu.be/fUk_eBKL3q8", "https://play.google.com/store/apps/details?id=com.kiloo.subwaysurf", "4", "1"));
 
-        db.addGame(new Jogo("8 Ball Pool", "O jogo de bilhar nº 1 do mundo - agora para Android!•\n" +
+        db.addGame(new Jogo("8 Ball Pool", "O jogo de bilhar nº 1 do mundo - agora para Android!\n" +
                 "Joga com amigos! Joga com lendas. Joga o famoso jogo 8 Ball Pool da Miniclip no " +
                 "teu dispositivo móvel e torna-te o melhor!", 4.5, "eightballpool",
                 "https://youtu.be/MarGQrmbPm0", "https://play.google.com/store/apps/details?id=com.miniclip.eightballpool", "5", "3"));
@@ -75,6 +82,49 @@ public class DatabaseInsert {
                 "Este aplicativo oferece compras internas. Você pode desativar as compras pelo aplicativo nas configurações do seu dispositivo.", 4.3, "nfs",
                 "https://youtu.be/9DQvlNm20x0", "https://play.google.com/store/apps/details?id=com.ea.game.nfs14_row", "6", "4"));
 
+        db.addGame(new Jogo("Traffic Rider",
+                "Outra obra-prima dos criadores do Traffic Racer. Desta vez, você está no comando de uma moto vivenciando uma " +
+                        "experiência muito mais detalhada, mas mantendo a antiga diversão e a simplicidade.\n" +
+                        "O Traffic Rider leva a experiência do gênero de corrida interminável a um nível totalmente " +
+                        "novo, adicionando um modo carreira completo, perspectiva de visão em primeira pessoa, imagens " +
+                        "melhores e sons de motos reais gravados. A essência da corrida arcade ainda existe, mas com as novidades" +
+                        " da próxima geração. Pilote sua moto em estradas intermináveis, enfrentando trânsito, aprimorando e comprando novas motos para cumprir missões no modo carreira."
+                ,4.8 , "traficrider",
+                "https://youtu.be/0FimuzxUiQY", "https://play.google.com/store/apps/details?id=com.skgames.trafficrider",
+                "7", "4" ));
+
+        db.addGame(new Jogo("Candy Crush Jelly Saga",
+                "A Jelly Queen chegou à cidade e quer desafiar-te para um jogo de Candy Crush Jelly Saga! Quaisquer que sejam as tuas jogadas," +
+                        " é bom que sejam jelly-ciosas o suficiente para derrotares a poderosa Jelly Queen.\n" +
+                        "Espalha a diversão! O novo Candy Crush Jelly Saga traz novos modos de jogo, funcionalidades e batalhas contra bosses... no caso, bossa: a Jelly Queen! No jogo, tu és a Jenny e" +
+                        " precisas de mostrar o que sabes para enfrentar a Jelly Queen em cada rodada. Vence quem conseguir espalhar mais gelatina no ecrã! Tens o que é preciso?"
+                ,4.3 , "jellysaga",
+                "", "https://play.google.com/store/apps/details?id=com.king.candycrushjellysaga",
+                "8", "5" ));
+
+        db.addGame(new Jogo("Vlogger Go Viral - Clicker",
+                "Prepare-se para se tornar a próxima sensação da internet em Vlogger Go Viral, um jogo clicker em que " +
+                        "cada clique deixa seu canal mais próximo da fama. Comece apenas com um sonho na cabeça e uma câmera nas mãos e trilhe seu caminho para o estrelato. Será que você consegue?\n" +
+                        "Faça a produção de vídeos, gerencie seu canal, consiga milhões de seguidores e visualizações, fique bilionário e melhore seus equipamentos e estúdio. O céu é o limite!"
+                ,4.7 , "vlog",
+                "https://youtu.be/K-ORc7hTYyQ", "https://play.google.com/store/apps/details?id=br.com.tapps.vloggergoviral",
+                "9", "6" ));
+
+        db.addGame(new Jogo("Desiste! 2",
+                "Chegou a sequência do popular jogo de plataforma baseado em ritmo!\n" +
+                        "☆☆Mais de 10 milhões de downloads de Desiste! no mundo todo. ☆☆\n" +
+                        "Desiste! 2 combina os melhores recursos dos jogos de plataforma e de ritmo, fazendo um Desiste! ainda melhor.\n" +
+                        "Jogue com a Bolha e seus amigos em um mundo surreal acinzentado e exclusivo de espinhos mortais e plataformas."
+                ,4.3 , "desiste2",
+                "https://youtu.be/x_h-TL87jHE", "https://play.google.com/store/apps/details?id=com.invictus.giveitup2",
+                "10", "7" ));
+
+        //Método de adicionar jogos
+        /*db.addGame(new Jogo("",
+                ""
+                , , "",
+                "", "",
+                "", "" ));*/
     }
 
 }

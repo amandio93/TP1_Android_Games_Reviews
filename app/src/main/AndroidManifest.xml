@@ -16,7 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".FragmentContainer" />
-        <activity android:name=".SecondaryLists"></activity>
+        <activity android:name=".SecondaryLists" />
+        <activity android:name=".SplashScreen"></activity>
     </application>
 
 </manifest>
