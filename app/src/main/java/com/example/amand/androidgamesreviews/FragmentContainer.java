@@ -50,7 +50,6 @@ public class FragmentContainer extends AppCompatActivity {
     private FragmentTransaction showList(Integer container){
         ListFragment listFragment = new ListFragment();
         listFragment.setArguments(getIntent().getExtras());
-
         FragmentTransaction transaction = this.getSupportFragmentManager().beginTransaction();
         transaction.add(container, listFragment).commit();
         stateListGames = true;
