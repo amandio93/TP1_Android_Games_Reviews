@@ -13,10 +13,9 @@ import java.util.List;
  * André Amândio
  * Trabalho: PDM2
  * Ficheiro: DatabaseHandler
- * Data entrega: 22/01/2016
+ * Data entrega: 27/01/2016
  */
 public class DatabaseHandler extends SQLiteOpenHelper {
-
 
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "jogos";
@@ -126,7 +125,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-
     public List<Categoria> getAllCategorys() {
         List<Categoria> categoriaList = new ArrayList<>();
         String selectQuery = "SELECT categoria FROM " + TABELA_CATEGORIAS;
@@ -173,6 +171,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return jogosList;
     }
 
+    /**
+     *
+     * @param CodJogo
+     * @return
+     */
     public List<Jogo> getAllGames(int CodJogo) {
         List<Jogo> jogosList = new ArrayList<>();
         String selectQuery = "SELECT nome_jogo, classificacao_jogo, categorias.categoria, produtoras.produtora, " +

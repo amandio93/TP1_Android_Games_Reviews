@@ -1,18 +1,14 @@
 package com.example.amand.androidgamesreviews;
 
 
-import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -23,16 +19,17 @@ import java.util.List;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * André Amândio
+ * Trabalho: PDM2
+ * Ficheiro: ListFragment
+ * Data entrega: 27/01/2016
  */
 public class ListFragment extends android.support.v4.app.ListFragment {
 
-    //public static final String STATE_ARGS = "getArguments";
     private int selectedIndex;
     boolean landState;
 
     public ListFragment() {
-        // Required empty public constructor
     }
 
 
@@ -60,30 +57,10 @@ public class ListFragment extends android.support.v4.app.ListFragment {
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
-
     public void onListItemClick(ListView l, View v, int position, long id) {
 
         this.selectedIndex = (position + 1);
 
-        /*GameInfoFragment gameInfoFragmentLand = (GameInfoFragment)
-                getActivity().getSupportFragmentManager().findFragmentById(R.id.game_info_fragment);
-
-        if (gameInfoFragmentLand != null ) {
-            if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-                //gameInfoFragmentLand.updateGameInfo(selectedIndex +1);
-                GameInfoFragment gameInfoFragment = new GameInfoFragment();
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragment_container, gameInfoFragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
-                gameInfoFragmentLand.updateGameInfo(selectedIndex);
-            }else{
-                gameInfoFragmentLand.updateGameInfo(selectedIndex);
-            }
-            //gameInfoFragmentLand.updateGameInfo(selectedIndex +1);
-        }else{
-
-        }*/
         GameInfoFragment gameInfoFragment = new GameInfoFragment();
         GameInfoFragment gameInfoFragmentLand = (GameInfoFragment)
                 getActivity().getSupportFragmentManager().findFragmentById(R.id.game_info_fragment);
@@ -99,13 +76,8 @@ public class ListFragment extends android.support.v4.app.ListFragment {
             transaction.commit();
         }
         else{
-            /*GameInfoFragment gameInfoFragmentLand = (GameInfoFragment)
-                    getActivity().getSupportFragmentManager().findFragmentById(R.id.game_info_fragment);*/
             landState = true;
             gameInfoFragmentLand.updateGameInfo(selectedIndex);
         }
-
-
     }
-
 }

@@ -2,12 +2,10 @@ package com.example.amand.androidgamesreviews;
 
 
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,20 +22,14 @@ import java.util.List;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * André Amândio
+ * Trabalho: PDM2
+ * Ficheiro: GameInfoFragment
+ * Data entrega: 27/01/2016
  */
 public class GameInfoFragment extends Fragment {
 
     static String ARG_POSITION = "position";
-
-    /*private TextView txtGameName;
-    private TextView txtClassification;
-    private TextView txtCategory;
-    private TextView txtProdution;
-    private TextView txtDescription;
-    private ImageView imgVgame;
-    private Button btnVideo;
-    private Button btnStore;*/
 
     private String gameName;
     private String gameClassification;
@@ -48,36 +40,15 @@ public class GameInfoFragment extends Fragment {
     private String linkVideo;
     private String linkStore;
 
-    private String argumentsConverter;
-
     int mCurrentPosition = 0;
 
     public GameInfoFragment() {
-        // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_game_info, container, false);
-
-        /*if (savedInstanceState != null) {
-            mCurrentPosition = savedInstanceState.getInt(ARG_POSITION);
-        }*/
-
-
-        /*txtGameName = (TextView)view.findViewById(R.id.txtGameName);
-        txtClassification = (TextView)view.findViewById(R.id.txtClassification);
-        txtCategory = (TextView)view.findViewById(R.id.txtCategory);
-        txtProdution = (TextView)view.findViewById(R.id.txtProdution);
-        txtDescription = (TextView)view.findViewById(R.id.txtDescription);
-        imgVgame = (ImageView)view.findViewById(R.id.imageView);
-        btnVideo = (Button)view.findViewById(R.id.btnVideo);
-        btnStore = (Button)view.findViewById(R.id.btnGooglePlay);*/
-
-
-
         return view;
     }
 
@@ -89,14 +60,13 @@ public class GameInfoFragment extends Fragment {
         if (args != null) {
             mCurrentPosition = args.getInt("position");
             updateGameInfo(mCurrentPosition);
-            /*if (mCurrentPosition != 0) {
-                updateGameInfo(mCurrentPosition);
-            }else {
-                updateGameInfo(args.getInt(ARG_POSITION));
-            }*/
         }
     }
 
+    /**
+     *
+     * @param position
+     */
     public void updateGameInfo(int position){
 
         TextView txtGameName = (TextView)getActivity().findViewById(R.id.txtGameName);
@@ -130,7 +100,6 @@ public class GameInfoFragment extends Fragment {
         txtProdution.setText(gameProdution);
         txtDescription.setText("Descrição: \n" + gameDescription);
 
-
         String uri = "@drawable/" + gameImage;
         try{
             int imageResource = getResources().getIdentifier(uri, null, getContext().getPackageName());
@@ -162,13 +131,5 @@ public class GameInfoFragment extends Fragment {
                 }
             }
         });
-
-        //mCurrentPosition = position;
     }
-
-   /* @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putInt(ARG_POSITION, mCurrentPosition);
-    }*/
 }

@@ -3,7 +3,6 @@ package com.example.amand.androidgamesreviews;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,17 +12,18 @@ import android.widget.TextView;
 
 import com.example.amand.androidgamesreviews.Model.Categoria;
 import com.example.amand.androidgamesreviews.Model.DatabaseHandler;
-import com.example.amand.androidgamesreviews.Model.Jogo;
 import com.example.amand.androidgamesreviews.Model.Produtora;
 
 import java.util.List;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * André Amândio
+ * Trabalho: PDM2
+ * Ficheiro: SecondaryListsFragment
+ * Data entrega: 27/01/2016
  */
 public class SecondaryListsFragment extends android.support.v4.app.ListFragment {
-
 
     public SecondaryListsFragment() {
     }
@@ -64,7 +64,6 @@ public class SecondaryListsFragment extends android.support.v4.app.ListFragment 
             }
             setListAdapter(adapter);
         }
-
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 

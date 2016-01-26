@@ -6,6 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+/**
+ * André Amândio
+ * Trabalho: PDM2
+ * Ficheiro: SecondaryLists
+ * Data entrega: 27/01/2016
+ */
 public class SecondaryLists extends AppCompatActivity {
 
     public static String buttonName;
@@ -22,8 +28,13 @@ public class SecondaryLists extends AppCompatActivity {
         if(buttonName.equals("categoria") || buttonName.equals("produtora")){
             showList(R.id.fragment_container_secondary);
         }
-
     }
+
+    /**
+     *
+     * @param container
+     * @return
+     */
     private FragmentTransaction showList(Integer container){
         SecondaryListsFragment secondaryListsFragment = new SecondaryListsFragment();
         FragmentTransaction transaction = this.getSupportFragmentManager().beginTransaction();

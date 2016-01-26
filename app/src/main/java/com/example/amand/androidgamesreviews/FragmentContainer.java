@@ -1,34 +1,23 @@
 package com.example.amand.androidgamesreviews;
 
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
 /**
  * André Amândio
  * Trabalho: PDM2
- * Ficheiro: FragmentLocal
- * Data entrega: 22/01/2016
+ * Ficheiro: FragmentContainer
+ * Data entrega: 27/01/2016
  */
 public class FragmentContainer extends AppCompatActivity {
 
     private String buttonName;
-
     static final String STATE_INFO = "InfoFragment";
-    static final String STATE_LIST_GAME = "ListGameFragment";
-
-    static final boolean STATE = false;
-
-    public boolean stateInfo = false;
     public boolean stateListGames = false;
-
     boolean firstTimePortrait = true;
 
     @Override
@@ -40,24 +29,7 @@ public class FragmentContainer extends AppCompatActivity {
         buttonName = intent.getStringExtra("btnName");
         Log.d("btnName", buttonName);
 
-        /*if (savedInstanceState != null) {
-            stateInfo = savedInstanceState.getBoolean(STATE_INFO, true);
-            stateListGames = savedInstanceState.getBoolean(STATE_LIST_GAME, true);
-        }*/
-
-        /*if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-            if (stateListGames){
-                ListFragment listFragment = new ListFragment();
-                FragmentTransaction transaction = this.getSupportFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragment_container, listFragment).commit();
-
-            }else{
-                FragmentTransaction res = showList(R.id.fragment_container);
-            }
-        }*/
-
         if (savedInstanceState != null) {
-            // Restore value of members from saved state
             firstTimePortrait = savedInstanceState.getBoolean("firstTimePortrait");
         }
 
@@ -70,6 +42,11 @@ public class FragmentContainer extends AppCompatActivity {
         }
     }
 
+    /**
+     *
+     * @param container
+     * @return
+     */
     private FragmentTransaction showList(Integer container){
         ListFragment listFragment = new ListFragment();
         listFragment.setArguments(getIntent().getExtras());
@@ -80,6 +57,11 @@ public class FragmentContainer extends AppCompatActivity {
         return transaction;
     }
 
+    /**
+     *
+     * @param container
+     * @return
+     */
     private FragmentTransaction showGameInfo(Integer container){
         GameInfoFragment gameInfoFragment = new GameInfoFragment();
         gameInfoFragment.setArguments(getIntent().getExtras());

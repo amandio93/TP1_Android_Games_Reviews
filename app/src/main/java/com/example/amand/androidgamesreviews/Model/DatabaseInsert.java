@@ -8,7 +8,7 @@ import java.util.List;
  * André Amândio
  * Trabalho: PDM2
  * Ficheiro: DatabaseInsert
- * Data entrega: 22/01/2016
+ * Data entrega: 27/01/2016
  */
 public class DatabaseInsert {
 

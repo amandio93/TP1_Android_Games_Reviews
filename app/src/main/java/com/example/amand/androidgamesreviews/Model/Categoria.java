@@ -4,7 +4,7 @@ package com.example.amand.androidgamesreviews.Model;
  * André Amândio
  * Trabalho: PDM2
  * Ficheiro: Categoria
- * Data entrega: 22/01/2016
+ * Data entrega: 27/01/2016
  */
 public class Categoria {
 
@@ -18,6 +18,11 @@ public class Categoria {
         this._nome_categoria = nome_categoria;
     }
 
+    /**
+     *
+     * @param cod_categoria
+     * @param nome_categoria
+     */
     public Categoria (int cod_categoria, String nome_categoria){
         this._cod_categoria = cod_categoria;
         this._nome_categoria = nome_categoria;

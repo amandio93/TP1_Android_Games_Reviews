@@ -4,7 +4,7 @@ package com.example.amand.androidgamesreviews.Model;
  * André Amândio
  * Trabalho: PDM2
  * Ficheiro: Jogo
- * Data entrega: 22/01/2016
+ * Data entrega: 27/01/2016
  */
 public class Jogo {
 
@@ -21,6 +21,17 @@ public class Jogo {
     public Jogo(){
     }
 
+    /**
+     *
+     * @param nome_jogo
+     * @param descricao_jogo
+     * @param classificacao_jogo
+     * @param nome_imagem_jogo
+     * @param link_video_jogo
+     * @param link_store_jogo
+     * @param cod_produtora
+     * @param cod_categoria
+     */
     public Jogo(String nome_jogo, String descricao_jogo, double classificacao_jogo,
                 String nome_imagem_jogo, String link_video_jogo, String link_store_jogo, String cod_produtora, String cod_categoria){
         this._nome_jogo = nome_jogo;
@@ -33,6 +44,18 @@ public class Jogo {
         this._cod_categoria = cod_categoria;
     }
 
+    /**
+     *
+     * @param cod_jogo
+     * @param nome_jogo
+     * @param descricao_jogo
+     * @param classificacao_jogo
+     * @param nome_imagem_jogo
+     * @param link_video_jogo
+     * @param link_store_jogo
+     * @param cod_produtora
+     * @param cod_categoria
+     */
     public Jogo(int cod_jogo, String nome_jogo, String descricao_jogo, double classificacao_jogo,
                     String nome_imagem_jogo, String link_video_jogo, String link_store_jogo, String cod_produtora, String cod_categoria){
         this._cod_jogo = cod_jogo;

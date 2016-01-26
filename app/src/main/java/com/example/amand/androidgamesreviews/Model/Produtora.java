@@ -18,6 +18,11 @@ public class Produtora {
         this._nome_produtora = nome_produtora;
     }
 
+    /**
+     *
+     * @param cod_produtora
+     * @param nome_produtora
+     */
     public Produtora (int cod_produtora, String nome_produtora){
         this._cod_produtora = cod_produtora;
         this._nome_produtora = nome_produtora;

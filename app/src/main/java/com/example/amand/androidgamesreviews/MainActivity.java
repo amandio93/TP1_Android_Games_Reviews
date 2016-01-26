@@ -1,13 +1,18 @@
 package com.example.amand.androidgamesreviews;
 
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
 import com.example.amand.androidgamesreviews.Model.DatabaseInsert;
 
+/**
+ * André Amândio
+ * Trabalho: PDM2
+ * Ficheiro: MainActivity
+ * Data entrega: 27/01/2016
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
