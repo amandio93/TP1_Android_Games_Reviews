@@ -29,6 +29,7 @@ public class FragmentContainer extends AppCompatActivity {
     public boolean stateInfo = false;
     public boolean stateListGames = false;
 
+    boolean firstTimePortrait = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,20 +55,19 @@ public class FragmentContainer extends AppCompatActivity {
                 FragmentTransaction res = showList(R.id.fragment_container);
             }
         }*/
-        ListFragment listFragment = (ListFragment)
-                this.getSupportFragmentManager().findFragmentById(R.id.list_fragment);
-        GameInfoFragment gameInfoFragmentLand = (GameInfoFragment)
-                this.getSupportFragmentManager().findFragmentById(R.id.game_info_fragment);
-        if (findViewById(R.id.fragment_container) != null) {
 
-            if (savedInstanceState != null) {
-                return;
-            }
-
-            FragmentTransaction res = showList(R.id.fragment_container);
+        if (savedInstanceState != null) {
+            // Restore value of members from saved state
+            firstTimePortrait = savedInstanceState.getBoolean("firstTimePortrait");
         }
 
-
+        if (findViewById(R.id.fragment_container) != null && buttonName.equals("gameList")) {
+            if( ! firstTimePortrait ) {
+                return;
+            }
+            firstTimePortrait = false;
+            FragmentTransaction res = showList(R.id.fragment_container);
+        }
     }
 
     private FragmentTransaction showList(Integer container){
@@ -94,7 +94,7 @@ public class FragmentContainer extends AppCompatActivity {
         if (infoFragment != null){
             savedInstanceState.putBoolean(STATE_INFO, true);
         }
-
+        savedInstanceState.putBoolean("firstTimePortrait", firstTimePortrait);
         super.onSaveInstanceState(savedInstanceState);
     }
 

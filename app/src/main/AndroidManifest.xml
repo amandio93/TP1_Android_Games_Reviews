@@ -15,7 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FragmentContainer"></activity>
+        <activity android:name=".FragmentContainer" />
+        <activity android:name=".SecondaryLists"></activity>
     </application>
 
 </manifest>

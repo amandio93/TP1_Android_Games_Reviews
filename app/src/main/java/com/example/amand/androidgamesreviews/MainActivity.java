@@ -17,20 +17,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnGameList_OnClick(View view){
-        Intent fragmentLocal = new Intent(this, FragmentContainer.class);
-        fragmentLocal.putExtra("btnName", "gameList");
-        startActivity(fragmentLocal);
+        Intent fragmentContainer = new Intent(this, FragmentContainer.class);
+        fragmentContainer.putExtra("btnName", "gameList");
+        startActivity(fragmentContainer);
     }
 
     public void btnCategory_OnClick(View view){
-        Intent fragmentLocal = new Intent(this, FragmentContainer.class);
-        fragmentLocal.putExtra("btnName", "categoria");
-        startActivity(fragmentLocal);
+        Intent listsContainer = new Intent(this, SecondaryLists.class);
+        listsContainer.putExtra("btnName", "categoria");
+        startActivity(listsContainer);
     }
 
     public void btnProdution_OnClick(View view){
-        Intent fragmentLocal = new Intent(this, FragmentContainer.class);
-        fragmentLocal.putExtra("btnName", "produtora");
-        startActivity(fragmentLocal);
+        Intent listsContainer = new Intent(this, SecondaryLists.class);
+        listsContainer.putExtra("btnName", "produtora");
+        startActivity(listsContainer);
     }
 }

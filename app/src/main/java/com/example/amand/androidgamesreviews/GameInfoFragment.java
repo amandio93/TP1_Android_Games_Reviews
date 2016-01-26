@@ -77,6 +77,7 @@ public class GameInfoFragment extends Fragment {
         btnStore = (Button)view.findViewById(R.id.btnGooglePlay);*/
 
 
+
         return view;
     }
 
