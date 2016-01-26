@@ -64,10 +64,10 @@
                 android:layout_width="299dp"
                 android:layout_height="60dp"
                 android:text="Produtoras"
-                android:id="@+id/btnProdutora"
+                android:id="@+id/btnProdution"
                 android:layout_marginTop="12dp"
                 android:background="#ffffff"
-                android:onClick="btnProdutora_OnClick"
+                android:onClick="btnProdution_OnClick"
                 android:layout_marginBottom="12dp"
                 android:layout_marginRight="2dp" />
 
@@ -75,10 +75,10 @@
                 android:layout_width="299dp"
                 android:layout_height="60dp"
                 android:text="Categorias"
-                android:id="@+id/btnCategoria"
+                android:id="@+id/btnCategory"
                 android:layout_marginTop="12dp"
                 android:background="#ffffff"
-                android:onClick="btnCategoria_OnClick"
+                android:onClick="btnCategory_OnClick"
                 android:layout_marginBottom="12dp" />
         </LinearLayout>
 

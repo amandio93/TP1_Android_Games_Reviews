@@ -44,12 +44,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Produtoras"
-                android:id="@+id/btnProdutora"
+                android:id="@+id/btnProdution"
                 android:layout_weight="1"
                 android:layout_marginTop="12dp"
                 android:layout_margin="10dp"
                 android:background="#ffffff"
-                android:onClick="btnProdutora_OnClick" />
+                android:onClick="btnProdution_OnClick" />
 
             <Button
                 android:layout_width="wrap_content"
@@ -66,12 +66,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Categorias"
-                android:id="@+id/btnCategoria"
+                android:id="@+id/btnCategory"
                 android:layout_weight="1"
                 android:layout_marginTop="12dp"
                 android:layout_margin="10dp"
                 android:background="#ffffff"
-                android:onClick="btnCategoria_OnClick" />
+                android:onClick="btnCategory_OnClick" />
         </LinearLayout>
 
     </LinearLayout>
