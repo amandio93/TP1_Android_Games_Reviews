@@ -64,7 +64,7 @@ public class GameInfoFragment extends Fragment {
     }
 
     /**
-     *
+     * Recebe a posição da lista
      * @param position
      */
     public void updateGameInfo(int position){

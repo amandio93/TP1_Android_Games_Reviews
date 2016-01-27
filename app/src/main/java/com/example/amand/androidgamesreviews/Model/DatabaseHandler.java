@@ -172,7 +172,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     /**
-     *
+     * Receber o código do jogo
      * @param CodJogo
      * @return
      */

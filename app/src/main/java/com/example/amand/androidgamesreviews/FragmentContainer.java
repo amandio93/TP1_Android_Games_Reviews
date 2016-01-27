@@ -43,7 +43,7 @@ public class FragmentContainer extends AppCompatActivity {
     }
 
     /**
-     *
+     * Recebe o id de um layout para a colocação dos fragmentos
      * @param container
      * @return
      */
@@ -57,7 +57,7 @@ public class FragmentContainer extends AppCompatActivity {
     }
 
     /**
-     *
+     * Recebe o id de um layout para a colocação dos fragmentos
      * @param container
      * @return
      */

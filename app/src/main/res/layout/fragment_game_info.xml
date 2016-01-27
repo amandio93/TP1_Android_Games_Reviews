@@ -30,7 +30,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Nome Jogo"
+                    android:text="Jogo"
                     android:id="@+id/txtGameName"
                     android:layout_gravity="top|center_vertical"
                     android:textAlignment="center"
@@ -81,7 +81,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="classificação"
                         android:id="@+id/txtClassification"
                         android:layout_gravity="center_horizontal"
                         android:textColor="#ffffff" />
@@ -99,7 +98,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="categoria"
                         android:id="@+id/txtCategory"
                         android:layout_gravity="center_horizontal"
                         android:textColor="#ffffff" />
@@ -117,7 +115,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="produtora"
                         android:id="@+id/txtProdution"
                         android:layout_gravity="center_horizontal"
                         android:textColor="#ffffff" />
@@ -135,7 +132,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Descrição:"
+                    android:text="Descrição"
                     android:id="@+id/txtDescription"
                     android:textColor="#ffffff" />
 

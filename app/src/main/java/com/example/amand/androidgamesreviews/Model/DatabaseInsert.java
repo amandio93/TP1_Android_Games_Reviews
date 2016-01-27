@@ -27,6 +27,10 @@ public class DatabaseInsert {
         }
     }
 
+    /**
+     *
+     * @param context
+     */
     public void insert_Dados(Context context){
         DatabaseHandler db = new DatabaseHandler(context);
         db.addCategory(new Categoria("Arcada"));
